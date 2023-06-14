@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular INCC</title>
+    <style>
+       
+        body {
+            width: 90vw;
+            height: 95vh; 
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(#caccc9,#caccc9,#a2a1a0);
+            
+        }
+        input {
+            margin: 2px;
+            padding: 4px;
+            font-size: 13px;
+        }
+        #bot {
+            background-color: #560808;
+            color: antiquewhite;
+            font-size: 20px;
+            font-style: arial;
+            color: #dad6d7;
+            border-radius: 6px;
+            box-shadow: 2px 3px rgba(0, 0, 0, 0.13);
+                        
+        }
+
+        .cx1 {
+          
+            font-size: 15px;
+            font-style: arial;
+            width: 55px;
+            border-radius: 6px;
+            box-shadow: 2px 3px rgba(0, 0, 0, 0.281);  
+                     
+                        
+        }
+
+        .cx2 {
+            
+            font-size: 15px;
+            font-style: arial;
+            width: 150px;
+            border-radius: 6px;
+            box-shadow: 2px 3px rgba(0, 0, 0, 0.281);             
+                        
+        }
+
+        h1{
+            color: #560808;
+            font-size: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 2px 2px 2px #4b4b4b49;
+        }
+
+        span {
+            
+            width: 50px;
+            height: 50px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: fill;
+        }
+
+        #res{
+            color: #560808;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 2px 2px 2px #4b4b4b49;
+        }
+               
+        
+
+
+
+    </style>
+</head>
+<body>
+
+    
+    <h1><span><img src="ELOPRIME2.jpg" alt="eloprime/jpg"></span>Calcular INCC </h1>
+   
+    
+
+    
+    INCC:<input class="cx1" type="number" name="incc" id="incc" step="0.01" min="0" max="100" > % <br>
+    Saldo Devedor:<input class="cx2" type="number" name="vtimovel" id="vtimovel"> <br>
+    Valor da Parcela:<input class="cx2" type="number" name="vparcela" id="vparcela"> <br>
+    <input id="bot" type="button" value="calcular" onclick="somar()">
+    <input id="bot" type="reset" value="limpar" onclick="limpar()">
+    <div id="res">Resultado</div>
+    
+    <script>
+        function formatarReal(valor) {
+            return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function somar(){
+            var incc = document.getElementById('incc'); 
+            var vtimovel = document.getElementById('vtimovel');
+            var vparcela = document.getElementById('vparcela');
+            var res = document.getElementById('res');
+            var n1 = Number(incc.value);
+            var n2 = Number(vtimovel.value);
+            var n3 = Number(vparcela.value);
+
+            var res1 = n2 * (n1 / 100);
+            var res2 = res1 + n2;
+            var res3 = res2 - n3;
+
+            res.innerHTML = formatarReal(res3);
+        }
+
+        function limpar() {
+            location.reload()
+        }
+
+
+        
+
+    </script>
+</body>
+</html>
